@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center"> PROTOTYPE</h1>
+
+    <h3>THIS IS REFER TO THE GLOBLA OBJECT THIS IS USED INSIDE THE METHOD</h3>
+    <pre>console.log('my name is'+this.name +'and last name is'+this.lname);</pre>
+
+    <h3>call apply and bind is used for borrow the function method</h3>
+    <h2>CALL</h2>
+    <p>call is something which is pass seprately by commo,</p>
+    <pre>
+        const name={
+            name:'amit',
+            lname:'kumar',
+            info:function (){
+                console.log('my name is'+this.name +'and last name is'+this.lname);
+            }
+        }
+        const value={
+            name:'abhishek',
+            lname:'kannaujiya'
+        }
+        name.info.call(value)
+    </pre>
+
+    <h2>APPLY IS ALSO SAME ONLY DIFFRENCE IS PASSING ARGUMENT IN THE FORM OF ARRAY INSIDE SQUIRE BRACKET[]</h2>
+    <pre>
+        const name={
+            name:'abc',
+            lname:'kumar'
+        }
+        let printname=function(state,country){
+            console.log('my first name is'+this.name+'my last name is'+this.lname+'my state is'+state+'my country is'+country);
+        }
+        const val={
+            name:'xyz',
+            lname:'shukla'
+        }
+        printname.apply(val,['uttarpradesh','india'])
+    </pre>
+
+    <h2>BIND</h2>
+    <p>which will return new function</p>
+    <pre>
+        const name={
+            name:'abc',
+            lname:'kumar'
+        }
+        let printname=function(state,country){
+            console.log('my first name is'+this.name+'my last name is'+this.lname+'my state is'+state+'my country is'+country);
+        }
+        const val={
+            name:'xyz',
+            lname:'shukla'
+        }
+        const result = printname.bind(val,['uttarpradesh','india'])
+        result()
+    </pre>
+    <h2>PROTOTYPE</h2>
+    <ul>
+        <li>Whenever we create an object or array or function ....our javascript Engine will attach an object to our original Object</li>
+        <li>proto:Js Engine is keeping all these methods and function in our proto</li>
+    </ul>
+    <script src="main.js"></script>
+</body>
+</html>
